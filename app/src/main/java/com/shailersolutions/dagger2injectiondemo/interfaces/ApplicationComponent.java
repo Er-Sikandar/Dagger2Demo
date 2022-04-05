@@ -1,13 +1,15 @@
 package com.shailersolutions.dagger2injectiondemo.interfaces;
 
 import com.shailersolutions.dagger2injectiondemo.Car;
+import com.shailersolutions.dagger2injectiondemo.MainActivity;
 
 import dagger.Component;
 
 @Component
 public interface ApplicationComponent {
 
-     Car getCar();
+   //  Car getCar();
 
+     void inject(MainActivity mainActivity);
 
 }

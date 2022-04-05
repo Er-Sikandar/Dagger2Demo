@@ -13,15 +13,21 @@ import android.view.WindowManager;
 import com.shailersolutions.dagger2injectiondemo.interfaces.ApplicationComponent;
 import com.shailersolutions.dagger2injectiondemo.interfaces.DaggerApplicationComponent;
 
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity {
-  private Car car;
+  @Inject Car car;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ApplicationComponent component= DaggerApplicationComponent.create();
-       car=component.getCar();
+     /*  car=component.getCar();*/
+
+        component.inject(MainActivity.this);
 
         
      car.drive();
