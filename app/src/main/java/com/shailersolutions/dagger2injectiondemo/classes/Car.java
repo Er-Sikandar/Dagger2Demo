@@ -1,6 +1,7 @@
-package com.shailersolutions.dagger2injectiondemo;
+package com.shailersolutions.dagger2injectiondemo.classes;
 
 import android.util.Log;
+
 
 import javax.inject.Inject;
 
@@ -8,19 +9,19 @@ public class Car {
     Engine engine;
     Wheels wheels;
 
-    @Inject
+   @Inject
     public Car(Engine engine, Wheels wheels) {
         this.engine = engine;
         this.wheels = wheels;
     }
 
 
-    @Inject
+   @Inject
     public void enableRemote(Remote remote) {
         remote.setListener(this);
     }
 
-    void drive() {
+    public void drive() {
         Log.e("Tag", "Driving..");
     }
 }

@@ -1,4 +1,4 @@
-package com.shailersolutions.dagger2injectiondemo;
+package com.shailersolutions.dagger2injectiondemo.classes;
 
 import javax.inject.Inject;
 

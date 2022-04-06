@@ -1,33 +1,31 @@
 package com.shailersolutions.dagger2injectiondemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
-import android.app.RemoteInput;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
-import com.shailersolutions.dagger2injectiondemo.interfaces.ApplicationComponent;
-import com.shailersolutions.dagger2injectiondemo.interfaces.DaggerApplicationComponent;
+import com.shailersolutions.dagger2injectiondemo.classes.Car;
+import com.shailersolutions.dagger2injectiondemo.databinding.ActivityMainBinding;
 
-import javax.inject.Inject;
+
+ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding;
   @Inject Car car;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_main);
+        ((MyApplication) getApplicationContext()).appComponent.inject(MainActivity.this);
 
-        ApplicationComponent component= DaggerApplicationComponent.create();
-     /*  car=component.getCar();*/
 
-        component.inject(MainActivity.this);
+
+
 
         
      car.drive();
